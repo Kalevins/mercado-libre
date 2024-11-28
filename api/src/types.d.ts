@@ -1,10 +1,11 @@
-type Condition = 'new' | 'used' | 'reconditioned'
+type Condition = 'new' | 'used' | 'not_specified'
 
 // -------------------------------
 
 export interface ItemsDTO {
   filters: Filter[] | []
   results: Result[] | []
+  paging: Paging
 }
 
 interface Filter {
@@ -19,6 +20,7 @@ interface Value {
 interface Result {
   id: string
   title: string
+  seller: Seller
   currency_id: string
   price: number
   original_price: number | null
@@ -28,6 +30,9 @@ interface Result {
   installments: Installments
 }
 
+interface Seller {
+  nickname: string
+}
 
 interface Shipping {
   free_shipping: boolean
@@ -38,9 +43,16 @@ interface Installments {
   amount: number | null
 }
 
+interface Paging {
+  total: number
+  offset: number
+  limit: number
+}
+
 // -------------------------------
 
 export interface ItemsByIdDTO {
+  seller_id: number
   category_id: string
   id: string
   title: string
@@ -83,6 +95,12 @@ interface PathFromRoot {
 
 // -------------------------------
 
+export interface UserByIdDTO {
+  nickname: string
+}
+
+// -------------------------------
+
 export interface ItemsProps {
   query: string
   offset: number
@@ -93,11 +111,13 @@ export interface ItemsProps {
 export interface Items {
   categories: string[]
   items: Item[]
+  paging: Paging
 }
 
 interface Item {
   id: string
   title: string
+  seller: string
   price: Price
   picture: string
   condition: Condition

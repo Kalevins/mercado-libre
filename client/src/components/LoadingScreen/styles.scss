@@ -1,0 +1,51 @@
+.loading-screen {
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  &__spinner {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before,
+    &::after {
+      border: 6.7px solid $color-yellow-background;
+      border-radius: 50%;
+      position: absolute;
+      content: "";
+      display: block;
+    }
+
+    &::before {
+      width: 33.6px;
+      height: 33.6px;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      animation: spinner 0.75s infinite linear reverse;
+    }
+
+    &::after {
+      animation: spinner 0.5s infinite linear;
+      height: 56px;
+      width: 56px;
+      border-right-color: transparent;
+      border-top-color: transparent;
+    }
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

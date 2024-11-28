@@ -1,0 +1,82 @@
+@import "fonts";
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $color-gray-background;
+  //color: $color-primary;
+  font-family: ProximaNova, sans-serif;
+
+  & ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    border-radius: 20px;
+  }
+
+  & ::-webkit-scrollbar-track {
+    background: var(--color-background);
+    border-radius: 0px;
+  }
+
+  & ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 20px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, ul, label, p, span, small, label, code {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+input,
+select,
+textarea {
+  font-family: ProximaNova, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input::-webkit-input-placeholder,
+select::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  font-family: ProximaNova, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: $color-black-light;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}

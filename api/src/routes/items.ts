@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 
-import { getItems, getItemsById, getDescriptionById, getCategoryById } from "../services/items";
+import { getItems, getItemsById, getDescriptionById, getCategoryById, getUserById } from "../services/items";
 import { Items, ItemsById } from "../types";
 
 export const ItemsRouter = Router();
@@ -17,20 +17,26 @@ ItemsRouter.get("/", async (request: Request, response: Response<Items>) => {
       items: itemsResponse.results.map((item) => ({
         id: item.id,
         title: item.title,
+        seller: item.seller.nickname,
         price: {
           currency: item.currency_id,
-          amount: item.price,
-          decimals: 0,
+          amount: Math.floor(item.price),
+          decimals: item.price - Math.floor(item.price),
           regular_amount: item.original_price,
         },
         picture: item.thumbnail,
         condition: item.condition,
         free_shipping: item.shipping.free_shipping,
         installments: {
-          quantity: item.installments.quantity,
-          amount: item.installments.amount,
+          quantity: item?.installments?.quantity || null,
+          amount: item?.installments?.amount || null
         }
       })),
+      paging: {
+        total: itemsResponse.paging.total,
+        offset: itemsResponse.paging.offset,
+        limit: itemsResponse.paging.limit,
+      }
     };
 
     response.json(items);
@@ -46,17 +52,19 @@ ItemsRouter.get("/:id", async (request: Request, response: Response<ItemsById>) 
     const item = await getItemsById(id);
     const description = await getDescriptionById(id);
     const category = await getCategoryById(item.category_id);
+    const seller = await getUserById(item.seller_id);
 
     const itemResponse = {
       id: item.id,
       title: item.title,
+      seller: seller.nickname,
       price: {
         currency: item.currency_id,
-        amount: item.price,
-        decimals: 0,
+        amount: Math.floor(item.price),
+        decimals: item.price - Math.floor(item.price),
         regular_amount: item.original_price,
       },
-      pictures: item.pictures.map((picture) => picture.url),
+      pictures: item.pictures.map((picture) => picture.url) || [],
       condition: item.condition,
       free_shipping: item.shipping.free_shipping,
       sold_quantity: item.sold_quantity || null,

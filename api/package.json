@@ -10,9 +10,11 @@
     "lint": "ts-standard"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.21.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.9.1",
     "ts-node-dev": "^2.0.0",

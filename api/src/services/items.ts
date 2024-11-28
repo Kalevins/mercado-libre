@@ -1,7 +1,7 @@
-import { CategoryByIdDTO, DescriptionByIdDTO, ItemsByIdDTO, ItemsDTO, ItemsProps } from "../types";
+import { CategoryByIdDTO, DescriptionByIdDTO, ItemsByIdDTO, ItemsDTO, ItemsProps, UserByIdDTO } from "../types";
 
 export const getItems = async ({query, offset}: ItemsProps): Promise<ItemsDTO> => {
-  const items = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&offset=${offset}`);
+  const items = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&offset=${offset}&limit=10`);
   const data = await items.json();
   return data;
 }
@@ -20,6 +20,12 @@ export const getDescriptionById = async (id: string): Promise<DescriptionByIdDTO
 
 export const getCategoryById = async (id: string): Promise<CategoryByIdDTO> => {
   const items = await fetch(`https://api.mercadolibre.com/categories/${id}`);
+  const data = await items.json();
+  return data;
+}
+
+export const getUserById = async (id: number): Promise<UserByIdDTO> => {
+  const items = await fetch(`https://api.mercadolibre.com/users/${id}`);
   const data = await items.json();
   return data;
 }

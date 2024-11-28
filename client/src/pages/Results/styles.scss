@@ -1,0 +1,103 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px auto;
+  gap: 2px;
+  max-width: $variable-width;
+  width: 100%;
+  cursor: pointer;
+
+  &__item {
+    background-color: $color-white;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    gap: 24px;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  &__picture-container {
+    width: 259px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__picture {
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 25px;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 300;
+    color: $color-black-heavy;
+  }
+
+  &__seller {
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-black-light;
+  }
+
+  &__discount {
+    font-size: 12px;
+    font-weight: 400;
+    color: $color-black-light;
+    text-decoration: line-through;
+  }
+
+  &__price-container {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__price {
+    font-size: 24px;
+    font-weight: 400;
+    color: $color-black-heavy;
+  }
+
+  &__promotion {
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-green;
+  }
+
+  &__installments {
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-green;
+  }
+
+  &__shipping {
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-green;
+  }
+
+  &__condition {
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-black-light;
+  }
+}

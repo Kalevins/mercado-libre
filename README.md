@@ -1,50 +1,38 @@
-# React + TypeScript + Vite
+# Mercado Libre
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+_Proyecto que consume la API de Mercado Libre y muestra los productos en una lista, además de poder ver los detalles de cada producto._
 
-Currently, two official plugins are available:
+### 🔧 Instalación
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+_En el directorio del proyecto, primero ejecutar el backend:_
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+cd .\api\ && npm i && npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+_Luego, en otro terminal, ejecutar el frontend:_
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+cd .\client\ && npm i && npm run dev
+```
+
+_Para ver el proyecto, abrir el navegador en:_
+
+```
+http://localhost:3000/
+```
+
+## 🛠️ Construcción
+
+* [React](https://reactjs.org/) - Librería de JavaScript - Frontend
+* [Vite](https://vitejs.dev/) - Herramienta de desarrollo - Frontend
+* [Sass Modules](https://sass-lang.com/) - Preprocesador CSS - Frontend
+* [Express](https://expressjs.com/) - Framework de Node.js - Backend
+
+## ✒️ Autores
+
+* **Kevin Muñoz Rengifo** - *Totalidad* - [Kalevins](https://github.com/Kalevins)
+
+## 🎁 Expresiones de Gratitud
+
+* Agradecimientos especiales a Mercado Libre
